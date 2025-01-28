@@ -21,6 +21,16 @@
         {% else %}
         <span>(Completed)</span>
         {% endif %}
+        {% if todo.index != 0 %}
+        <form action="/up/{{ todo.id }}" method="post">
+          <button type="submit">Move up</button>
+        </form>
+        {% endif %}
+        {% if todo.index != todos | length - 1 %}
+        <form action="/down/{{ todo.id }}" method="post">
+          <button type="submit">Move down</button>
+        </form>
+        {% endif %}
         <form action="/delete/{{ todo.id }}" method="post">
           <button type="submit">Delete</button>
         </form>
